@@ -17,7 +17,7 @@ Imagine you're building a new-fangled version of those toys where you have to ma
 
 ![shape sorter](http://i.makeagif.com/media/12-14-2015/jj-I6H.gif)
 
-This new-fangled version works when you combine inputs of the same time. To demonstrate, let's do some math. Open up your console and enter:
+This new-fangled version works when you combine inputs of the same time. To demonstrate, let's do some math. Open up your console ([remember how?](https://learn.co/tracks/introduction-to-javascript/javascript-foundations/javascript-basics/javascript-basics#the-(browser)-console)) and enter:
 
 ``` javascript
 2 + 2

@@ -106,7 +106,7 @@ typeof 1.123.45
 typeof 'I'm not going to work'
 ```
 
-For now, we're going to explore numbers and strings the most. Later in the curriculum, you'll learn a lot more about booleans, `null` and `undefined`.
+For now, we're going to explore numbers and strings the most. Later in the curriculum, you'll learn a lot more about the `boolean`, `null` and `undefined` data types.
 
 ### Numbers
 

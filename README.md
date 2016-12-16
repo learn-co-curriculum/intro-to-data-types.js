@@ -17,7 +17,7 @@ Imagine you're building a new-fangled version of those toys where you have to ma
 
 ![shape sorter](http://i.makeagif.com/media/12-14-2015/jj-I6H.gif)
 
-This new-fangled version works when you combine inputs of the same time. To demonstrate, let's do some math. Open up your console and enter:
+This new-fangled version works when you combine inputs of the same type. To demonstrate, let's do some math. Open up your Chrome console (View/Developer/JavaScript Console) and enter:
 
 ``` javascript
 2 + 2
@@ -106,7 +106,7 @@ typeof 1.123.45
 typeof 'I'm not going to work'
 ```
 
-For now, we're going to explore numbers and strings the most. Later in the curriculum, you'll learn a lot more about booleans, `null` and `undefined`.
+For now, we're going to explore numbers and strings the most. Later in the curriculum, you'll learn a lot more about the `boolean`, `null` and `undefined` data types.
 
 ### Numbers
 

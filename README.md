@@ -1,4 +1,4 @@
-# JavaScript Data Types
+# JavaScript Data Types hello
 
 In this lesson, we'll cover some of the most commonly used data types in JavaScript.
 

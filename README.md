@@ -15,7 +15,7 @@ At the machine level, all data on a computer is bits — 1s and 0s. Humans, it t
 
 Imagine you're building a new-fangled version of those toys where you have to match the shape with the hole it fits into.
 
-![shape sorter](http://i.makeagif.com/media/12-14-2015/jj-I6H.gif)
+![shape sorter](https://i.makeagif.com/media/12-14-2015/jj-I6H.gif)
 
 This new-fangled version works when you combine inputs of the same type. To demonstrate, let's do some math. Open up your console and enter:
 

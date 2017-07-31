@@ -1,182 +1,166 @@
 # JavaScript Data Types
-
-In this lesson, we'll cover some of the most commonly used data types in JavaScript.
+In this lesson, we'll cover all of the basic data types in JavaScript.
 
 ## Objectives
-1. Define "data type"
-2. Explain JavaScript's data types
-3. Use the `typeof` operator
+1. Define 'data type'.
+2. Perform basic type checking with the `typeof` operator.
+3. Provide a high-level overview of JavaScript's seven basic data types.
+4. Discuss interactions between data of various types in JavaScript.
 
 ## What is a data type?
+At the machine level, all data on a computer are bits — 1s and 0s. Humans, it turns out, have more trouble discerning between `1100011 1100001 1110100 1110011` and `1100100 1101111 1100111 1110011` (cats and dogs) than our silicon friends. For more human-friendly representations of different pieces of information, we developed **data types**. JavaScript contains a number of operators (`+`, `!`, `<=`, etc.) and reserved words (`function`, `for`, `debugger`, etc.), which are reserved by the language for a specific purpose. ***Everything else is data***. And every piece of data falls into one of JavaScript's seven data types: numbers, strings, booleans, symbols, objects, `null`, and `undefined`.
 
-At the machine level, all data on a computer is bits — 1s and 0s. Humans, it turns out, prefer not to work so close to the metal, so we have _data types_ for describing different bits of information. Data types give us a quick way of understanding how we can operate on a given bit of data.
-
-## Math!
-
-Imagine you're building a new-fangled version of those toys where you have to match the shape with the hole it fits into.
-
-![shape sorter](https://i.makeagif.com/media/12-14-2015/jj-I6H.gif)
-
-This new-fangled version works when you combine inputs of the same type. To demonstrate, let's do some math. Open up your Chrome console (View/Developer/JavaScript Console) and enter:
-
-``` javascript
-2 + 2
-```
-
-We should, unsurprisingly, see `4` show up in console. Cool — pop that into the `4` hole in our shape sorter. Now let's try
-
-``` javascript
-2 + "2"
-```
-
-(Don't forget the quotation marks around the second number!)
-
-And press enter.
-
-Um. Something's broken? Instead of another `4`, we got `"22"` — that won't work.
-
-It turns out, we're adding (with the `+` operator) things of two different _types_. `2` is a number; `"2"` is a string. So when we add them together, JavaScript recognizes that we can't do simple arithmetic — instead, it tries to make the two things compatible. In this case, it turns the first `2` into `"2"` and then _concatenates_ (pushes together) the two things — so we get `"22"`.
-
-One last example — before you press "enter" for this one, we want to think about what's going to happen. What will the result be?
-
-``` javascript
-"2" + 2
-```
-
-Have you thought about it? What did we learn above? Are you ready? Okay, press "enter".
-
-That's right, the result of `"2" + 2` is also `"22"`.
-
-Why all this mumbo jumbo with types? Well, let's think about it. As humans when we see `2345`, we provide context: we might think of this sequence of integers in our heads as "two thousand three hundred forty-five"; we might note immediately that the integers are consecutive. We understand that `2345 + 2` should give us `2347`.
-
-JavaScript can't do that. It sees `2345` and only knows that it's a number. Similarly, it sees _anything_ in quotation marks as a string. We provide the context for JavaScript according to the rules that JavaScript follows — one of those rules happens to describe what happens when we add a number and a string.
-
-## You're just not my type
-
-How do we know what types we're dealing with? JavaScript gives us the handy dandy `typeof`. We use it like so
-
-``` javascript
-typeof 2 // "number"
-typeof "2" // "string"
-typeof '2' // "string" — strings can be enclosed in single (') or double (") quotes
-```
-
-Pretty simple, right? You can think of `typeof` as a shortcut for telling you what kind of hole to look for in our imaginary, new-fangled shape-sorter.
-
-In addition to numbers and strings, JavaScript has the following _primitive_ types:
-
-- Boolean
-- Undefined
-- Null
-
-Enter the following commands in your console to get a feel for the different types:
-
-``` javascript
-typeof 1
-typeof 10
-typeof 1.123
-```
-
-``` javascript
-typeof "Albert"
-typeof '123'
-typeof "What's my type?"
-```
-
-``` javascript
-typeof true
-typeof false
-```
-
-``` javascript
-typeof undefined
-```
-
-``` javascript
-typeof null
-```
-
-Also enter the following — pay attention to the errors!
-
-``` javascript
-typeof 1.123.45
-```
-
-``` javascript
-typeof 'I'm not going to work'
-```
-
-For now, we're going to explore numbers and strings the most. Later in the curriculum, you'll learn a lot more about the `boolean`, `null` and `undefined` data types.
+***NOTE***: Throughout this lesson, we'll use the `typeof` operator to give us an idea of what data types we're dealing with. `typeof` accepts one argument, the piece of data that we'd like to know the _type of_.
 
 ### Numbers
+Unlike other programming languages that divide numbers up into integers, decimals, doubles, floats, and so on, JavaScript only has a single, all-encompassing `number` type:
+```js
+typeof 42
+//=> "number"
 
-JavaScript uses numbers just like you would think of them, and we can even use decimal points. Enter the following in console:
+typeof 3.141592653589793
+//=> "number"
 
-``` javascript
-4
-8.0
-16.123
+typeof 5e-324
+//=> "number"
+
+typeof -Infinity
+//=> "number"
 ```
-
-In fact, JavaScript treats _all_ numbers as if they have decimal points (even if they don't). Sometimes this can lead to unexpected consequences. Enter the following in console:
-
-```javascript
-4
-```
-
-If you press enter, you'll see `4`. Simple enough. Now enter the following:
-
-``` javascript
-4.0000000000000001
-```
-
-If you press `enter`, you'll see... `4`. Hrm. It's not important to know the details of how this behavior works right now (although we encourage you to search for resources online if you find it interesting!), but it is important to know that it happens.
 
 ### Strings
+Strings are how we represent text in JavaScript. A string consists of a matching pair of `'single quotes'`, `"double quotes"`, or `` `backticks` `` with zero or more characters in between:
+```js
+typeof "I am a string."
+//=> "string"
 
-Strings are very straightforward in JavaScript. They are collections of characters. Plus signs are used to concatenate strings.
+typeof 'Me too!'
+//=> "string"
 
-In their most basic form, strings look like
-
-``` javascript
-"I'm a string"
-'I\'m also a string'
+typeof `Me three!`
+//=> "string"
 ```
 
-Notice that we added a `\` before the `'` in the second string above. Because we use quotation marks to tell JavaScript, "Hey, this is a string!", we have to _escape_ quotation marks when they're inside of a string so that JavaScript knows to treat them as part of the string.
-
-Go ahead and enter `'I\'m a string'` in console. You should see `"I'm a string"` — when we wrap a string in double quotation marks, we don't need to escape single quotation marks (the apostrophe, in this example) that appear inside.
-
-``` javascript
-"I'm a string"
+Even empty strings are strings:
+```js
+typeof ""
+//=> "string"
 ```
 
-Similarly, we don't need to escape double quotes when we use them in a singly-quoted string:
+### Booleans
+A boolean can only be one of two possible values: `true` or `false`. Booleans play a big role in logical control flows and looping in JavaScript.
+```js
+typeof true
+//=> "boolean"
 
-``` javascript
-'I said, "Strings are pretty nifty."'
+typeof false
+//=> "boolean"
 ```
 
-We can "add" strings together — this is called concatenation:
+### Objects
+JavaScript objects are a collection of properties bounded by curly braces (`{ }`), similar to a hash in Ruby. The properties can point to values of any data type — even other objects:
+```js
+{
+  "name": "JavaScript",
+  "createdBy": {
+    "firstName": "Brendan",
+    "lastName": "Eich"
+  },
+  "firstReleased": 1995,
+  "isAwesome": true
+}
 
-``` javascript
-'Hello, ' + 'World'  // Returns 'Hello, World'
-
-'High ' + 5 + '!!!' // Returns 'High 5!!!'
+typeof {}
+//=> "object"
 ```
 
-We can also insert strings into other strings — this is called _interpolation_. JavaScript supports string interpolation with [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
-
-Template literals look and behave like strings, except instead of being wrapped in a single or double quote, they're wrapped in backticks (at the top left of your keyboard, under the escape key — it looks like `).
-
-```javascript
-`High ${3 + 2}!` // 'High 5!'
+### `null`
+The `null` data type represents an intentionally absent object. For example, if a piece of code returns an object when it successfully executes, we could have it return `null` in the event of an error. Confusingly, the `typeof` operator returns `"object"` when called with `null`:
+```js
+typeof null
+//=> "object"
 ```
 
-We'll cover string interpolation in greater depth later on, but for now notice that the whole string is wrapped in backticks, and the part that we _interpolate_ is wrapped in `${}`. This, `${}`, is simply a special signal to JavaScript that people weren't likely to write out on their own — it signals to the JavaScript interpreter that it should _evaluate_ (that is, run the code) whatever is inside of it. Being able to evaluate our code and put the result directly inside of a string is a super powerful idea that we'll make lots of use of.
+### `undefined`
+The bane of many JS developers, `undefined` is a bit of a misnomer. Instead of 'not defined,' it actually means something more like 'not yet assigned a value.' We'll learn a lot more about `undefined` when we dive into variables and functions.
+```js
+typeof undefined
+//=> "undefined"
+```
+
+### Symbols
+Symbols are a relatively new data type (introduced in ES2015) that's primarily used as an alternate way to add properties to objects. Don't worry about symbols for now.
+
+## Primitive types
+Six of the seven JavaScript data types — everything except `object` — are **primitive**. All this means is that they represent _single_ values, such as `7` or `"hello"` or `false`, instead of a collection of values.
+
+## Interactions between data types
+Every programming language has its own rules governing the ways in which we can operate on data of a given type. For example, it's rather uncontroversial that numbers can be subtracted from other numbers...
+```js
+3 - 2
+//=> 1
+```
+...and that strings can be added to other strings:
+```js
+"Hello" + ', ' + `world!`
+//=> "Hello, world!"
+```
+
+Some programming languages are incredibly strict about how data of different types can interact, and they will refuse to compile a program that uses types incorrectly. Other languages are more forgiving. For example, instead of throwing an error when an integer (`3`) is added to a floating-point number (`0.14159`), Ruby will simply convert the integer into a floating-point number and correctly calculate the sum:
+```ruby
+3 + 0.14159
+#=> 3.14159
+```
+
+JavaScript is a little _too_ nice. No matter what weird combination of types you give it, JavaScript won't throw an error and will return _something_ (though that _something_ might make no sense at all). This runs the gamut from the halfway-defensible...
+```js
+"High " + 5 + "!"
+//=> "High 5!"
+```
+...to the [comical][Wat]:
+```js
+null ** 2 // null to the power of 2
+//=> 0
+
+undefined ** null // undefined to the power of null
+//=> 1
+
+{} + {} // empty object plus empty object
+//=> "[object Object][object Object]" <-- That's a string!
+```
+
+Why JavaScript returns a string when we ask it to add two empty objects is anyone's guess, but its heart is definitely in the right place. The language always tries to bend over backwards for its human masters, returning actionable data instead of throwing errors. However, JavaScript's eagerness occasionally results in data type issues that both novice and expert programmers have to keep an eye on.
+
+Try to follow along with what's happening here:
+```js
+1 + 2 + 3 + 4 + 5
+//=> 15
+
+"1" + 2 + 3 + 4 + 5
+//=> "12345"
+
+1 + "2" + 3 + 4 + 5
+//=> "12345"
+
+1 + 2 + "3" + 4 + 5
+//=> "3345"
+
+1 + 2 + 3 + "4" + 5
+//=> "645"
+
+1 + 2 + 3 + 4 + "5"
+//=> "105"
+```
+
+As long as we are only adding numbers to other numbers, JavaScript performs the expected addition. However, as soon as we throw a string in the mix, we stop adding and start concatenating everything together into a string. In the fourth example, we add the numbers `1`, `2`, and `3` together to get `6` (a number). We then ask JavaScript to add `6` (a number) to `"4"` (a string). JavaScript can't perform addition with a string, so it decides to concatenate the two operands instead, resulting in `"64"` (a string). The remaining operation, `"64" + 5`, is also between a string and a number, and JavaScript once again concatenates, giving us the final result of `"645"` (a string).
+
+You'll encounter a lot of these weird data type behaviors throughout your JavaScript programming career, but fear not: they'll trip you up less and less often as you gain experience. Buckle up!
 
 ## Resources
+- [MDN — JavaScript data types and data structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
+- [Destroy All Software — Types](https://www.destroyallsoftware.com/compendium/types?share_key=baf6b67369843fa2)
+- [Destroy All Software — Wat][Wat]
 
-* [MDN - JavaScript Data Structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
+[Wat]: https://www.destroyallsoftware.com/talks/wat
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/javascript-intro-to-data-types'>JavaScript Data Types</a> on Learn.co and start learning to code for free.</p>

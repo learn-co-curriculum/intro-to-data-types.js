@@ -3,14 +3,14 @@ In this lesson, we'll cover all of the basic data types in JavaScript.
 
 ## Objectives
 1. Define 'data type'.
-2. Introduce the `typeof` operator.
+2. Perform basic type checking with the `typeof` operator.
 3. Provide a high-level overview of JavaScript's seven basic data types.
 4. Discuss interactions between data of various types in JavaScript.
 
 ## What is a data type?
-At the machine level, all data on a computer are bits — 1s and 0s. Humans, it turns out, prefer not to work so close to the metal, so we developed _data types_ for representing different pieces of information. JavaScript contains a number of operators (`+`, `!`, `<=`, etc.) and reserved words (`function`, `for`, `debugger`, etc.), which are reserved by the language for a specific purpose. _Everything_ else is data. And every piece of data falls into one of JavaScript's seven data types: numbers, strings, booleans, symbols, objects, `null`, and `undefined`.
+At the machine level, all data on a computer are bits — 1s and 0s. Humans, it turns out, have more trouble discerning between `1100011 1100001 1110100 1110011` and `1100100 1101111 1100111 1110011` (cats and dogs) than our silicon friends. For more human-friendly representations of different pieces of information, we developed **data types**. JavaScript contains a number of operators (`+`, `!`, `<=`, etc.) and reserved words (`function`, `for`, `debugger`, etc.), which are reserved by the language for a specific purpose. ***Everything else is data***. And every piece of data falls into one of JavaScript's seven data types: numbers, strings, booleans, symbols, objects, `null`, and `undefined`.
 
-***NOTE***: Throughout this lesson, we'll use the `typeof` operator to give us an idea of what data types we're dealing with. `typeof` accepts one [operand](https://en.wikipedia.org/wiki/Operand), the piece of data that we'd like to know the _type of_.
+***NOTE***: Throughout this lesson, we'll use the `typeof` operator to give us an idea of what data types we're dealing with. `typeof` accepts one argument, the piece of data that we'd like to know the _type of_.
 
 ### Numbers
 Unlike other programming languages that divide numbers up into integers, decimals, doubles, floats, and so on, JavaScript only has a single, all-encompassing `number` type:
@@ -48,7 +48,7 @@ typeof ""
 ```
 
 ### Booleans
-As in Ruby, booleans can only be the logical values `true` or `false`. Booleans play a big role in control flows and looping in JavaScript.
+A boolean can only be one of two possible values: `true` or `false`. Booleans play a big role in logical control flows and looping in JavaScript.
 ```js
 typeof true
 //=> "boolean"
@@ -56,9 +56,6 @@ typeof true
 typeof false
 //=> "boolean"
 ```
-
-### Symbols
-Symbols are a relatively new data type (introduced in ES2015) that's primarily used as a way to add anonymous properties to objects. Don't worry about symbols for now.
 
 ### Objects
 JavaScript objects are a collection of properties bounded by curly braces (`{ }`), similar to a hash in Ruby. The properties can point to values of any data type — even other objects:
@@ -90,6 +87,12 @@ The bane of many JS developers, `undefined` is a bit of a misnomer. Instead of '
 typeof undefined
 //=> "undefined"
 ```
+
+### Symbols
+Symbols are a relatively new data type (introduced in ES2015) that's primarily used as an alternate way to add properties to objects. Don't worry about symbols for now.
+
+## Primitive types
+Six of the seven JavaScript data types — everything except `object` — are **primitive**. All this means is that they represent _single_ values, such as `7` or `"hello"` or `false`, instead of a collection of values.
 
 ## Interactions between data types
 Every programming language has its own rules governing the ways in which we can operate on data of a given type. For example, it's rather uncontroversial that numbers can be subtracted from other numbers...
@@ -126,7 +129,7 @@ undefined ** null // undefined to the power of null
 //=> "[object Object][object Object]" <-- That's a string!
 ```
 
-Why JavaScript returns a string when we ask it to add two empty objects is anyone's guess. The language is trying to bend over backwards for its human masters, always returning actionable data instead of throwing errors. However, in its rush to please, JavaScript has created a veritable minefield of type errors that both novice and expert programmers have to keep an eye on.
+Why JavaScript returns a string when we ask it to add two empty objects is anyone's guess, but its heart is definitely in the right place. The language always tries to bend over backwards for its human masters, returning actionable data instead of throwing errors. However, JavaScript's eagerness occasionally results in data type issues that both novice and expert programmers have to keep an eye on.
 
 Try to follow along with what's happening here:
 ```js

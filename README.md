@@ -5,11 +5,11 @@ In this lesson, we'll cover some of the most commonly used data types in JavaScr
 ## Objectives
 1. Define "data type"
 2. Explain JavaScript's data types
-3. Use the `typeof` operator
+3. Use the `typeof` operator to explore JavaScript's data types
 
 ## What is a data type?
 
-At the machine level, all data on a computer is bits — 1s and 0s. Humans, it turns out, prefer not to work so close to the metal, so we have _data types_ for describing different bits of information. Data types give us a quick way of understanding how we can operate on a given bit of data.
+At the machine level, all data on a computer is bits — 1s and 0s. Humans, it turns out, prefer not to work so close to the metal, so we have _data types_ for describing different bits of information. Data types classify our data both for ourselves and the computer so that we can develop some expectations as to how the data can and will be used.
 
 ## Math!
 

@@ -4,3 +4,4 @@ tags:
 languages:
   - javascript
 resources: 1
+hard_wall: create_password
